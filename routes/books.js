@@ -94,7 +94,7 @@ router.put("/:isbn", async function (req, res, next) {
 router.delete("/:isbn", async function (req, res, next) {
   try {
     await Book.remove(req.params.isbn);
-    return res.json({ message: "Book deleted" });
+    return res.status(202).json({ message: "Book deleted" });
   } catch (err) {
     return next(err);
   }
